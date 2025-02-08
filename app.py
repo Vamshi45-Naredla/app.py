@@ -1,12 +1,10 @@
-from flask import Flask, request
+from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/location', methods=['POST'])
-def receive_location():
-    data = request.json
-    print(f"Received location: {data['latitude']}, {data['longitude']}")
-    return {"status": "success"}, 200
+@app.route("/")
+def home():
+    return "Hello, Flask is running!"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=10000)
